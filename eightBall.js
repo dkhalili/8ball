@@ -7,7 +7,7 @@ var server = net.createServer(function(client) {
 	console.log("connected");
 	client.setEncoding("utf8");
 
-	client.write("Hi I'm the magic 8 ball!\nAsk a question and I'll give you a response\nMake sure you use ? or else I might just ignore you...\n\n")
+	client.write("\nHi I'm the magic 8 ball!\nAsk a question and I'll give you a response\nMake sure you use ? or else I might just ignore you...\n\n")
 
 	//
 	var ask = function ask() {
@@ -26,7 +26,12 @@ var server = net.createServer(function(client) {
 	//
 
 	client.on("data", function(clientData) {
-		ask();
+		var input = clientData.trim();
+		if (input.indexOf("?") > -1 ){
+	
+			ask();
+			
+		}
 	})
 
 
