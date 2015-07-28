@@ -18,7 +18,7 @@ var server = net.createServer(function(client) {
 			else {
 				var parsed = JSON.parse(data);
 				var randQ = parsed[Math.floor(Math.random()*parsed.length - 1)]; 
-				client.write(randQ);
+				client.write(randQ + "\n");
 			}
 		})
 	
